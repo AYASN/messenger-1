@@ -1,4 +1,4 @@
-package com.assir.yassine;
+package com.assir.yassine.messenger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
