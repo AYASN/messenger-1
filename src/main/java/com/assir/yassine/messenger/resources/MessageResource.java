@@ -4,10 +4,7 @@ package com.assir.yassine.messenger.resources;
 import com.assir.yassine.messenger.model.Message;
 import com.assir.yassine.messenger.service.MessageService;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -20,6 +17,13 @@ public class MessageResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Message> getMessages() {
         return messageService.getAllMessages();
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Message addMessage(Message message) {
+        return messageService.addMessage(message);
     }
 
     @GET
