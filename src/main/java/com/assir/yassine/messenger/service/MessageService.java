@@ -1,6 +1,7 @@
 package com.assir.yassine.messenger.service;
 
 import com.assir.yassine.messenger.database.DatabaseClass;
+import com.assir.yassine.messenger.exception.DataNotFoundException;
 import com.assir.yassine.messenger.model.Message;
 
 import java.util.*;
@@ -39,7 +40,11 @@ public class MessageService {
     }
 
     public Message getMessage(long id) {
-        return messages.get(id);
+        Message message = messages.get(id);
+        if (message == null) {
+            throw new DataNotFoundException("Message with id " + id + " not found");
+        }
+        return message;
     }
 
     public Message addMessage(Message message) {
